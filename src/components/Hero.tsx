@@ -9,8 +9,9 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <Image
         src="/images/lighthouse.webp"
-        alt="Lighthouse"
+        alt="Lighthouse overlooking the coast — representing navigational guidance in infrastructure investment"
         fill
+        sizes="100vw"
         className="object-cover"
         priority
       />

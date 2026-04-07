@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Contact | Inverlock Advisory",
+  description:
+    "Get in touch with Inverlock to discuss infrastructure advisory, portfolio interventions, and partnership support.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (
@@ -7,8 +17,9 @@ export default function ContactPage() {
       <section className="relative h-64 md:h-80 w-full overflow-hidden">
         <Image
           src="/images/substation.webp"
-          alt="Electrical substation"
+          alt="Electrical substation representing infrastructure assets"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

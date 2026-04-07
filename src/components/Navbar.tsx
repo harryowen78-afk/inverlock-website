@@ -30,6 +30,7 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label="Main navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         showSolid
           ? "bg-white shadow-md"
@@ -80,6 +81,7 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
           <span
             className={`block w-6 h-0.5 transition-all duration-300 ${

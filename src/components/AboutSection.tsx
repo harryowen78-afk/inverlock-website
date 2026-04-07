@@ -75,6 +75,7 @@ export default function AboutSection() {
             >
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-accent-blue text-white transition-transform duration-200 group-hover:scale-110">
                 <svg
+                  aria-hidden="true"
                   width="16"
                   height="16"
                   viewBox="0 0 24 24"

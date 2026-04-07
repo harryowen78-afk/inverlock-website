@@ -3,7 +3,16 @@
     "allow": [
       "Bash(rm:*)",
       "Bash(npm install:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(npm audit:*)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'Vulnerabilities: {d.get\\(\\\\\"metadata\\\\\",{}\\).get\\(\\\\\"vulnerabilities\\\\\",{}\\)}'\\)\")",
+      "Bash(ls -la /Users/harryowen/Library/CloudStorage/OneDrive-Personal/Inverlock/Website/public/*.svg /Users/harryowen/Library/CloudStorage/OneDrive-Personal/Inverlock/Website/public/*.png)",
+      "Bash(npm run:*)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(npm ls:*)",
+      "Bash(node -e \"const sharp = require\\('sharp'\\); sharp\\('public/images/originals/substation.webp'\\).metadata\\(\\).then\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\)\")",
+      "Bash(npx -y sharp -e \"const sharp = require\\('sharp'\\); sharp\\('public/images/originals/substation.webp'\\).metadata\\(\\).then\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\)\")",
+      "Bash(node:*)"
     ]
   }
 }
