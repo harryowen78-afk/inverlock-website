@@ -14,6 +14,8 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover"
         priority
+        placeholder="blur"
+        blurDataURL="data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQAAoAAUAmJZQCdAEOuO5aMnAA/vvMyzN3Aid+KJHeRtwQ5Otugm7j+d0kakOlJHpHUwvVXpDxegg8PwAAAA=="
       />
       <div className="absolute inset-0 bg-navy-dark/70 pointer-events-none" />
 
@@ -32,7 +34,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-white/90 text-lg md:text-2xl tracking-wider font-light"
         >
-          Capturing Value in Transition Infrastructure
+          Restoring Control in Energy & Infrastructure
         </motion.p>
       </div>
 

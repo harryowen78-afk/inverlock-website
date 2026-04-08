@@ -24,9 +24,12 @@ export default function Footer() {
         </div>
         <div className="border-t border-slate-blue/30 pt-6">
           <p className="text-xs text-white/70 leading-relaxed max-w-3xl">
-            Inverlock is a trading name. This website is intended for
-            informational purposes only and does not constitute an offer or
-            solicitation. Past performance is not indicative of future results.
+            Inverlock is a trading name. This website is for informational
+            purposes only and does not constitute advice, an offer,
+            solicitation, or recommendation. No representation or warranty is
+            made as to the accuracy or completeness of the information
+            provided. Inverlock accepts no liability for any loss arising from
+            reliance on this content.
           </p>
         </div>
       </div>

@@ -9,7 +9,7 @@ const stats = [
   { value: 6, prefix: "$", suffix: "bn+", label: "Assets and business units stabilised" },
   { value: 1.5, prefix: "$", suffix: "bn", label: "Recovered through project termination programmes", decimals: 1 },
   { value: 1.4, prefix: "\u20ac", suffix: "bn", label: "Recovered through platform sales launched", decimals: 1 },
-  { value: 70, prefix: "~", suffix: "%", label: "DEVEX reduction achieved in portfolio development company" },
+  { value: 80, prefix: "~", suffix: "%", label: "DEVEX reduction achieved in portfolio development company" },
   { value: 15, label: "Joint Ventures built, managed and exited globally" },
   { value: 12, suffix: "+", label: "Markets" },
 ];
@@ -41,32 +41,24 @@ export default function AboutSection() {
               and mega projects
             </h2>
             <p className="text-text-body text-lg md:text-2xl font-light leading-relaxed mb-8">
-              We work at the intersection of capital, governance and execution
-              — advising investors and developers through complex asset,
-              portfolio and partnership situations across energy and
-              infrastructure.
+              We restore control where others just advise, guiding investors
+              and developers through complex asset, portfolio and partnership
+              situations where capital, governance and execution intersect.
             </p>
             <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
               <p>
-                We have identified that the offshore wind sector faces sustained
-                pressure, exposing structural weaknesses in investment
-                assumptions and project delivery. Developers often lack the
-                dedicated capability to manage complex asset, portfolio and
-                partnership situations.
+                The offshore wind sector faces sustained pressure — exposing
+                structural weaknesses in investment assumptions and project
+                delivery. No function inside a developer owns these complex
+                commercial situations. Risk modelling is fragmented,
+                decision-making is reactive, and financial discipline is
+                subordinated to project delivery. Without objectivity, pace,
+                and control — value is lost.
               </p>
               <p>
-                Strategy frequently lacks financial, commercial, and contractual
-                depth. M&amp;A lacks operational and delivery expertise. The most
-                critical decisions sit between these disciplines — this is where
-                Inverlock operates.
-              </p>
-              <p>
-                Working alongside investors and developers, we build
-                decision-grade views of commitments, claims, and capital
-                exposure. We identify break points through targeted stress
-                testing, quantify options across funding, restructuring and exit
-                pathways, and execute outcomes across portfolios, partnerships,
-                contracts, and delivery.
+                Our delivery spans generation, storage, and power-to-X —
+                working with energy leaders and suppliers to execute outcomes
+                across contracts, partners, and assets.
               </p>
             </div>
             <Link
@@ -104,7 +96,7 @@ export default function AboutSection() {
             variants={fadeUp}
           >
             <h3 className="text-text-dark text-xl md:text-2xl font-normal mb-8">
-              Our Track Record
+              Delivered at Scale, Under Pressure
             </h3>
             <div className="grid grid-cols-2 gap-x-8 gap-y-6">
               {stats.map((stat) => (
