@@ -36,29 +36,37 @@ export default function AboutSection() {
             variants={fadeUp}
           >
             <h2 className="text-text-dark text-2xl md:text-[34px] font-normal mb-4 leading-snug">
-              Inverlock is a specialist infrastructure advisory firm delivering
-              high-stakes commercial interventions across portfolio companies
-              and mega projects
+              Inverlock delivers decisive commercial intervention in complex
+              energy assets and portfolios
             </h2>
             <p className="text-text-body text-lg md:text-2xl font-light leading-relaxed mb-8">
-              We restore control where others just advise, guiding investors
-              and developers through complex asset, portfolio and partnership
-              situations where capital, governance and execution intersect.
+              We restore control alongside developers and investors in
+              situations where capital, governance, and delivery are under
+              pressure.
             </p>
             <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
               <p>
-                The offshore wind sector faces sustained pressure, exposing
-                structural weaknesses in investment assumptions and project
-                delivery. No function inside a developer owns these complex
-                commercial situations. Risk modelling is fragmented,
-                decision-making is reactive, and financial discipline is
-                subordinated to project delivery. Without objectivity, pace,
-                and control, value is lost.
+                Control breaks down when assumptions go unchallenged, risk is
+                fragmented, decisions are reactive, and financial discipline is
+                subordinated to project delivery.
+              </p>
+              <p className="font-medium text-text-dark">
+                We intervene to restore control.
               </p>
               <p>
-                Our delivery spans generation, storage, and power-to-X,
-                working with energy leaders and suppliers to execute outcomes
-                across contracts, partners, and assets.
+                We establish a decision-grade view of exposure, test business
+                cases against real conditions, and define clear capital
+                pathways. We then execute across contracts, partners, and
+                assets to protect value.
+              </p>
+              <p>
+                Built by operators, we have owned the outcomes we now deliver
+                by either working within teams or alongside management.
+              </p>
+              <p>
+                We operate across offshore wind, onshore wind and solar,
+                storage, and power-to-X: wherever complex infrastructure
+                underperforms.
               </p>
             </div>
             <Link
