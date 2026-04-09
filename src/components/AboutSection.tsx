@@ -47,16 +47,16 @@ export default function AboutSection() {
             </p>
             <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
               <p>
-                The offshore wind sector faces sustained pressure — exposing
+                The offshore wind sector faces sustained pressure, exposing
                 structural weaknesses in investment assumptions and project
                 delivery. No function inside a developer owns these complex
                 commercial situations. Risk modelling is fragmented,
                 decision-making is reactive, and financial discipline is
                 subordinated to project delivery. Without objectivity, pace,
-                and control — value is lost.
+                and control, value is lost.
               </p>
               <p>
-                Our delivery spans generation, storage, and power-to-X —
+                Our delivery spans generation, storage, and power-to-X,
                 working with energy leaders and suppliers to execute outcomes
                 across contracts, partners, and assets.
               </p>
