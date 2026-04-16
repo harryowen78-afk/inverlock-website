@@ -12,7 +12,17 @@
       "Bash(npm ls:*)",
       "Bash(node -e \"const sharp = require\\('sharp'\\); sharp\\('public/images/originals/substation.webp'\\).metadata\\(\\).then\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\)\")",
       "Bash(npx -y sharp -e \"const sharp = require\\('sharp'\\); sharp\\('public/images/originals/substation.webp'\\).metadata\\(\\).then\\(m => console.log\\(JSON.stringify\\(m, null, 2\\)\\)\\)\")",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)",
+      "Bash(grep -E \"config|\\\\.ts$|\\\\.js$\")",
+      "Bash(sips *)",
+      "Bash(npx --yes sharp-cli --version)",
+      "Bash(npx next *)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(rm -rf .next)"
     ]
   }
 }

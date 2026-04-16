@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverlock – Our Approach (Layout Prototype)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1f4e; background: #fff; }
+
+  /* Hero banner */
+  .hero {
+    background: #0a1628;
+    padding: 120px 40px 60px;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 400;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* Intro section */
+  .intro {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+  }
+  .intro p {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #3a3f5a;
+    max-width: 800px;
+  }
+  .intro p strong {
+    font-weight: 500;
+    color: #1a1f4e;
+  }
+
+  /* Cards grid */
+  .cards-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px 100px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 32px; }
+    .intro p { font-size: 18px; }
+  }
+
+  /* Individual card */
+  .card {
+    border: 1px solid #d0d5e0;
+    border-radius: 4px;
+    padding: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background: #fff;
+  }
+  .card:hover {
+    border-color: #4a90c4;
+    box-shadow: 0 4px 20px rgba(10, 22, 40, 0.08);
+  }
+  .card.active {
+    border-color: #0a1628;
+    background: #f8f9fb;
+  }
+  .card-number {
+    font-size: 13px;
+    font-weight: 400;
+    color: #4a90c4;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .card h3 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #1a1f4e;
+    margin-bottom: 12px;
+  }
+  .card-situation {
+    font-size: 15px;
+    font-weight: 300;
+    color: #3a3f5a;
+    line-height: 1.6;
+  }
+
+  /* Expandable content */
+  .card-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+  .card.active .card-detail {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #d0d5e0;
+  }
+  .card-detail h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4a5680;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 8px;
+  }
+  .card-detail p {
+    font-size: 15px;
+    font-weight: 300;
+    color: #3a3f5a;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .card-outcome {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1f4e;
+  }
+
+  /* Expand indicator */
+  .expand-icon {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+  .card.active .expand-icon {
+    transform: rotate(45deg);
+  }
+  .expand-icon svg {
+    stroke: #4a5680;
+    width: 18px;
+    height: 18px;
+  }
+
+  /* CTA */
+  .cta {
+    background: #0a1628;
+    padding: 80px 40px;
+    text-align: center;
+  }
+  .cta h2 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .cta p {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+  .cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta a:hover {
+    background: #fff;
+    color: #0a1628;
+  }
+
+  /* Label */
+  .prototype-label {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4a90c4;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="prototype-label">Layout Prototype – Click cards to expand</div>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Our Approach</h1>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p>
+    Organisations are built to build. Ambition, momentum, and institutional bias all push in one direction.
+    <strong>Inverlock provides the independent commercial capability to test whether that direction is right, and to act when it isn't.</strong>
+  </p>
+</div>
+
+<!-- Cards -->
+<div class="cards-section">
+  <div class="cards-grid">
+
+    <!-- Card 1 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <div class="card-number">01</div>
+      <h3>Investment Assurance</h3>
+      <p class="card-situation">Major capital commitment approaching. The board needs independent challenge before committing.</p>
+      <div class="card-detail">
+        <h4>What we do</h4>
+        <p>Independently test economics, risk allocation, and delivery readiness. Challenge assumptions that internal teams have lived with too long to question. Surface single points of failure that financial models won't catch.</p>
+        <h4>Outcome</h4>
+        <p class="card-outcome">Capital committed with conviction. Investment case stress-tested, risks surfaced, decision backed by independent view.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <div class="card-number">02</div>
+      <h3>Growth & Capital Discipline</h3>
+      <p class="card-situation">Scaling into new markets, assets, or geographies. Growth ambitions need grounding against capital constraints.</p>
+      <div class="card-detail">
+        <h4>What we do</h4>
+        <p>Test growth plans against funding headroom, returns, and delivery capability. Separate viable pipeline from expensive optionality. Remove speculative options that delay real decisions.</p>
+        <h4>Outcome</h4>
+        <p class="card-outcome">Growth scaled at a pace the economics support, not ambition alone.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <div class="card-number">03</div>
+      <h3>Performance & Strategic Review</h3>
+      <p class="card-situation">A business or portfolio may no longer justify the capital it absorbs. Cost base, targets, and organisation are misaligned.</p>
+      <div class="card-detail">
+        <h4>What we do</h4>
+        <p>Whole-business review of performance, capital efficiency, and strategic options. From continued investment through restructuring to exit. A clear recommendation the board can act on.</p>
+        <h4>Outcome</h4>
+        <p class="card-outcome">A decision the board can stand behind, with a defined path forward.</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" onclick="toggleCard(this)">
+      <div class="expand-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+      <div class="card-number">04</div>
+      <h3>Exit & Recovery</h3>
+      <p class="card-situation">A project, portfolio, or business unit requires a controlled wind-down. Contractual exposure is high, stakeholder complexity is real.</p>
+      <div class="card-detail">
+        <h4>What we do</h4>
+        <p>Build a decision-grade view of exposure. Execute termination programmes, settle contracts, monetise or repurpose assets. We have run these programmes at scale and owned the outcomes.</p>
+        <h4>Outcome</h4>
+        <p class="card-outcome">Clean exit executed, capital released, obligations discharged.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Get in touch</h2>
+  <p>To discuss how Inverlock can support your portfolio, please contact us.</p>
+  <a href="mailto:jhenry@inverlockadvisory.com">Contact Us →</a>
+</div>
+
+<script>
+function toggleCard(card) {
+  const wasActive = card.classList.contains('active');
+  // Close all cards
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  // Toggle clicked card
+  if (!wasActive) card.classList.add('active');
+}
+</script>
+
+</body>
+</html>

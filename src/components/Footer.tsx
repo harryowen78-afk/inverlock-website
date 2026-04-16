@@ -9,6 +9,9 @@ export default function Footer() {
             <Link href="/#about" className="hover:text-white transition-colors duration-200">
               About Us
             </Link>
+            <Link href="/approach" className="hover:text-white transition-colors duration-200">
+              Services
+            </Link>
             <Link href="/contact" className="hover:text-white transition-colors duration-200">
               Contact
             </Link>

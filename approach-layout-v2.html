@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverlock – Our Approach (V2 – Accordion-inspired)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: #1a1f4e; background: #fff; -webkit-font-smoothing: antialiased; }
+
+  /* Hero banner */
+  .hero {
+    background: #0a1628;
+    padding: 160px 40px 80px;
+  }
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 56px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.6);
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 20px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* Intro */
+  .intro {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+  }
+  .intro p {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #3a3f5a;
+    max-width: 780px;
+  }
+  .intro strong {
+    font-weight: 500;
+    color: #1a1f4e;
+  }
+
+  /* Offerings – full-width rows */
+  .offerings {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+  }
+
+  .offering {
+    border-top: 1px solid #e0e3ea;
+    padding: 48px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .offering:last-child {
+    border-bottom: 1px solid #e0e3ea;
+  }
+
+  .offering-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .offering-left {
+    flex: 1;
+  }
+
+  .offering-number {
+    font-size: 12px;
+    font-weight: 400;
+    color: #4a90c4;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .offering h3 {
+    font-size: 32px;
+    font-weight: 400;
+    color: #1a1f4e;
+    transition: color 0.2s ease;
+    letter-spacing: -0.3px;
+  }
+  .offering:hover h3 {
+    color: #4a90c4;
+  }
+
+  .offering-situation {
+    font-size: 17px;
+    font-weight: 300;
+    color: #4a5680;
+    line-height: 1.6;
+    margin-top: 10px;
+    max-width: 600px;
+  }
+
+  .offering-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #d0d5e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+  }
+  .offering:hover .offering-toggle {
+    border-color: #4a90c4;
+  }
+  .offering.active .offering-toggle {
+    background: #0a1628;
+    border-color: #0a1628;
+    transform: rotate(45deg);
+  }
+  .offering-toggle svg {
+    width: 16px;
+    height: 16px;
+    stroke: #4a5680;
+    transition: stroke 0.3s ease;
+  }
+  .offering.active .offering-toggle svg {
+    stroke: #fff;
+  }
+
+  /* Expandable detail */
+  .offering-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease, padding 0.4s ease;
+    padding-top: 0;
+  }
+  .offering.active .offering-detail {
+    max-height: 500px;
+    opacity: 1;
+    padding-top: 40px;
+  }
+
+  .detail-block h4 {
+    font-size: 11px;
+    font-weight: 500;
+    color: #4a90c4;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+  }
+  .detail-block p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #3a3f5a;
+    line-height: 1.7;
+  }
+  .outcome-line {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a1f4e;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e0e3ea;
+  }
+
+  /* CTA */
+  .cta {
+    background: #0a1628;
+    padding: 100px 40px;
+    text-align: center;
+  }
+  .cta h2 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .cta p {
+    color: rgba(255,255,255,0.6);
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .cta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: #fff;
+    padding: 16px 36px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+  .cta a:hover {
+    background: #fff;
+    color: #0a1628;
+    border-color: #fff;
+  }
+  .cta a svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero { padding: 120px 24px 60px; }
+    .hero h1 { font-size: 36px; }
+    .intro { padding: 60px 24px 40px; }
+    .intro p { font-size: 20px; }
+    .offerings { padding: 0 24px 80px; }
+    .offering h3 { font-size: 24px; }
+    .offering-detail { grid-template-columns: 1fr; gap: 30px; }
+    .cta { padding: 60px 24px; }
+    .cta h2 { font-size: 28px; }
+  }
+
+  /* Label */
+  .prototype-label {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4a90c4;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+    border-radius: 4px;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+
+<div class="prototype-label">V2 Prototype – Click rows to expand</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Our Approach</h1>
+    <p>Independent commercial capability for energy and infrastructure.</p>
+  </div>
+</div>
+
+<!-- Intro -->
+<div class="intro">
+  <p>
+    Organisations are built to build. Ambition, momentum, and institutional bias all push in one direction.
+    <strong>Inverlock provides the independent commercial capability to test whether that direction is right, and to act when it isn't.</strong>
+  </p>
+</div>
+
+<!-- Offerings -->
+<div class="offerings">
+
+  <!-- 1 -->
+  <div class="offering" onclick="toggleOffering(this)">
+    <div class="offering-header">
+      <div class="offering-left">
+        <div class="offering-number">01</div>
+        <h3>Investment Assurance</h3>
+        <p class="offering-situation">Major capital commitment approaching. The board needs independent challenge before committing.</p>
+      </div>
+      <div class="offering-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="offering-detail">
+      <div class="detail-block">
+        <h4>What we do</h4>
+        <p>Independently test economics, risk allocation, and delivery readiness. Challenge assumptions that internal teams have lived with too long to question. Surface single points of failure that financial sensitivity analysis won't catch.</p>
+      </div>
+      <div class="detail-block">
+        <h4>How we work</h4>
+        <p>Retained pre-FID to stress-test the investment case under real delivery conditions. We operate alongside management, not above them.</p>
+        <p class="outcome-line">Capital committed with conviction. Decision backed by independent view.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="offering" onclick="toggleOffering(this)">
+    <div class="offering-header">
+      <div class="offering-left">
+        <div class="offering-number">02</div>
+        <h3>Growth & Capital Discipline</h3>
+        <p class="offering-situation">Scaling into new markets, assets, or geographies. Growth ambitions need grounding against capital reality.</p>
+      </div>
+      <div class="offering-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="offering-detail">
+      <div class="detail-block">
+        <h4>What we do</h4>
+        <p>Test growth plans against funding headroom, balance sheet capacity, and delivery capability. Separate viable pipeline from expensive optionality. Remove speculative options that delay proper decisions.</p>
+      </div>
+      <div class="detail-block">
+        <h4>How we work</h4>
+        <p>We help with growth planning precisely because we know what happens when growth goes wrong. That perspective is the value.</p>
+        <p class="outcome-line">Growth scaled at a pace the returns can support, not ambition alone.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="offering" onclick="toggleOffering(this)">
+    <div class="offering-header">
+      <div class="offering-left">
+        <div class="offering-number">03</div>
+        <h3>Performance & Strategic Review</h3>
+        <p class="offering-situation">A business may no longer justify the capital it absorbs. Cost base, targets, and organisation are misaligned to market reality.</p>
+      </div>
+      <div class="offering-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="offering-detail">
+      <div class="detail-block">
+        <h4>What we do</h4>
+        <p>Whole-business review of performance, capital efficiency, and strategic options. From continued investment through restructuring to exit. Every option is sized by cost, value impact, and execution risk.</p>
+      </div>
+      <div class="detail-block">
+        <h4>How we work</h4>
+        <p>We produce a clear recommendation, not a menu of options without a view. The board gets a defined path forward with a position behind it.</p>
+        <p class="outcome-line">A decision the board can stand behind.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="offering" onclick="toggleOffering(this)">
+    <div class="offering-header">
+      <div class="offering-left">
+        <div class="offering-number">04</div>
+        <h3>Exit & Recovery</h3>
+        <p class="offering-situation">A project, portfolio, or business unit requires a controlled wind-down. Contractual exposure is high, stakeholder complexity is real.</p>
+      </div>
+      <div class="offering-toggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </div>
+    </div>
+    <div class="offering-detail">
+      <div class="detail-block">
+        <h4>What we do</h4>
+        <p>Build a decision-grade view of contractual exposure. Execute termination programmes, settle contracts, monetise or repurpose assets. We have run these programmes at scale and owned the outcomes.</p>
+      </div>
+      <div class="detail-block">
+        <h4>How we work</h4>
+        <p>Advisory first, then execution. We scope the problem, define solutions, and stay to deliver them. That second phase is where the value compounds.</p>
+        <p class="outcome-line">Clean exit executed, capital released, obligations discharged.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Get in touch</h2>
+  <p>To discuss how Inverlock can support your portfolio, please contact us.</p>
+  <a href="mailto:jhenry@inverlockadvisory.com">
+    Contact Us
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<script>
+function toggleOffering(el) {
+  const wasActive = el.classList.contains('active');
+  document.querySelectorAll('.offering').forEach(o => o.classList.remove('active'));
+  if (!wasActive) el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

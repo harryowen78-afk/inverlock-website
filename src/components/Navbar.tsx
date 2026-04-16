@@ -6,14 +6,19 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() => {
+    if (typeof window !== "undefined") return window.scrollY > 50;
+    return false;
+  });
+  const [mounted, setMounted] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   useEffect(() => {
+    setScrolled(window.scrollY > 50);
+    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 50);
-    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -31,7 +36,9 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Main navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        mounted ? "transition-all duration-300" : ""
+      } ${
         showSolid
           ? "bg-white shadow-md"
           : "bg-transparent"
@@ -44,7 +51,9 @@ export default function Navbar() {
             alt="Inverlock"
             width={160}
             height={40}
-            className={`h-8 w-auto transition-all duration-300 ${
+            className={`h-8 w-auto ${
+              mounted ? "transition-all duration-300" : ""
+            } ${
               showSolid ? "" : "brightness-0 invert"
             }`}
             priority
@@ -63,6 +72,16 @@ export default function Navbar() {
             }`}
           >
             About Us
+          </Link>
+          <Link
+            href="/approach"
+            className={`text-[15px] font-light tracking-wide transition-colors duration-200 ${
+              showSolid
+                ? "text-text-body hover:text-text-dark"
+                : "text-white/90 hover:text-white"
+            }`}
+          >
+            Services
           </Link>
           <Link
             href="/contact"
@@ -111,6 +130,13 @@ export default function Navbar() {
               className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
             >
               About Us
+            </Link>
+            <Link
+              href="/approach"
+              onClick={() => setMenuOpen(false)}
+              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
+            >
+              Services
             </Link>
             <Link
               href="/contact"
