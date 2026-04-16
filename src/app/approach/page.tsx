@@ -162,19 +162,35 @@ export default function ApproachPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[800px]"
+              className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[900px]"
             >
-              Organisations are built to build. Ambition, momentum, and
-              institutional bias all push in one direction.
+              Organisations are built to build.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px] mt-5"
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[900px]"
+            >
+              Ambition, momentum, and institutional bias all push in one
+              direction.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px] mt-6"
             >
               Inverlock provides independent judgement on whether that direction
-              is right, and acts when it isn&apos;t.
+              is right.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px]"
+            >
+              And acts when it isn&apos;t.
             </motion.p>
           </div>
         </div>
