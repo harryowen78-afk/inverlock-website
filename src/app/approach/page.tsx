@@ -17,7 +17,7 @@ const cards = [
     situation:
       "Major capital commitment approaching. The board needs independent challenge before committing.",
     whatWeDo:
-      "Independently test economics, risk allocation, and delivery readiness. Challenge assumptions that internal teams have lived with too long to question. Surface single points of failure that financial sensitivity analysis won't catch.",
+      "Independently test economics, risk allocation, and delivery readiness. Challenge assumptions that internal teams have lived with too long to question.",
     outcome:
       "Capital committed with conviction. Decision backed by independent view.",
   },
@@ -37,7 +37,7 @@ const cards = [
     situation:
       "A business or portfolio may no longer justify the capital it absorbs. Cost base, targets, and organisation are misaligned to market reality.",
     whatWeDo:
-      "Whole-business review of performance, capital efficiency, and strategic options. From continued investment through restructuring to exit. A clear recommendation the board can act on.",
+      "Whole-business review of performance, capital efficiency, and strategic options. From continued investment through restructuring to exit.",
     outcome:
       "A decision the board can stand behind, with a defined path forward.",
   },
@@ -173,8 +173,8 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px] mt-5"
             >
-              Inverlock provides the independent commercial capability to test
-              whether that direction is right, and to act when it isn&apos;t.
+              Inverlock provides independent judgement on whether that direction
+              is right, and acts when it isn&apos;t.
             </motion.p>
           </div>
         </div>
