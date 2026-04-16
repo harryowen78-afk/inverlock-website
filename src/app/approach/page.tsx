@@ -142,8 +142,8 @@ function OfferingCard({
 export default function ApproachPage() {
   return (
     <>
-      {/* Hero banner */}
-      <section className="relative h-64 md:h-80 w-full overflow-hidden bg-navy-dark">
+      {/* Hero — full viewport */}
+      <section className="relative h-screen w-full overflow-hidden">
         <Image
           src="/images/helicopter.webp"
           alt="Helicopter over infrastructure representing operational oversight"
@@ -154,41 +154,60 @@ export default function ApproachPage() {
           placeholder="blur"
           blurDataURL="data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAsABUB8JbACdADR2mbb5mAA/s18ixQXYYHLhvmXWjCYqKKyv5IKBaSJW0E5WhxmsdVU7UUAAA=="
         />
-        <div className="absolute inset-0 bg-navy-dark/70" />
-        <div className="relative z-10 flex items-end h-full pb-10 md:pb-14">
-          <div className="mx-auto max-w-[1280px] w-full px-6 md:px-20">
-            <h1 className="text-white text-4xl md:text-5xl font-normal">
-              Services
-            </h1>
-          </div>
-        </div>
-      </section>
+        <div className="absolute inset-0 bg-navy-dark/70 pointer-events-none" />
 
-      {/* Intro section */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-20">
-          <motion.p
-            className="text-2xl md:text-[34px] font-normal leading-snug max-w-4xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            variants={fadeUp}
-          >
-            <span className="text-text-body">
+        <div className="relative z-10 flex flex-col justify-end h-full pb-20 md:pb-28 px-6 md:px-20">
+          <div className="mx-auto max-w-[1280px] w-full">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[800px]"
+            >
               Organisations are built to build. Ambition, momentum, and
-              institutional bias all push in one direction.{" "}
-            </span>
-            <span className="font-medium text-text-dark">
+              institutional bias all push in one direction.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px] mt-5"
+            >
               Inverlock provides the independent commercial capability to test
               whether that direction is right, and to act when it isn&apos;t.
-            </span>
-          </motion.p>
+            </motion.p>
+          </div>
         </div>
+
+        {/* Scroll chevron */}
+        <motion.button
+          onClick={() =>
+            document
+              .getElementById("services")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-accent-blue/80 flex items-center justify-center cursor-pointer hover:bg-accent-blue hover:opacity-90 transition-all duration-200"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          aria-label="Scroll to services"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </motion.button>
       </section>
 
       {/* Offering cards */}
-      <section className="bg-light-grey py-20 md:py-28">
+      <section id="services" className="bg-light-grey py-20 md:py-28">
         <div className="mx-auto max-w-[1280px] px-6 md:px-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cards.map((card) => (
