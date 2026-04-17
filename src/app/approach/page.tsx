@@ -190,7 +190,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px]"
             >
-              And acts when it isn&apos;t.
+              And we act when it isn&apos;t.
             </motion.p>
           </div>
         </div>
