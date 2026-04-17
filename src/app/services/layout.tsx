@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   description:
     "Inverlock provides independent commercial capability across investment assurance, growth discipline, strategic review, and exit recovery for energy and infrastructure assets.",
   alternates: {
-    canonical: "/approach",
+    canonical: "/services",
   },
 };
 

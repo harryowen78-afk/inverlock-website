@@ -74,7 +74,7 @@ export default function Navbar() {
             About Us
           </Link>
           <Link
-            href="/approach"
+            href="/services"
             className={`text-[15px] font-light tracking-wide transition-colors duration-200 ${
               showSolid
                 ? "text-text-body hover:text-text-dark"
@@ -132,7 +132,7 @@ export default function Navbar() {
               About Us
             </Link>
             <Link
-              href="/approach"
+              href="/services"
               onClick={() => setMenuOpen(false)}
               className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
             >

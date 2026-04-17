@@ -22,7 +22,8 @@
       "Bash(npx --yes sharp-cli --version)",
       "Bash(npx next *)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(rm -rf .next)"
+      "Bash(rm -rf .next)",
+      "Bash(md5 -r src/app/favicon.ico public/favicon.ico)"
     ]
   }
 }

@@ -35,7 +35,7 @@ export default function DisclaimerModal() {
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === "Escape") {
-        window.location.href = "https://www.google.com";
+        handleDecline();
         return;
       }
       if (e.key !== "Tab" || !modalRef.current) return;
@@ -68,7 +68,11 @@ export default function DisclaimerModal() {
   };
 
   const handleDecline = () => {
-    window.location.href = "https://www.google.com";
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.close();
+    }
   };
 
   return (
