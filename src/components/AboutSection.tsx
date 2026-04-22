@@ -39,89 +39,83 @@ export default function AboutSection() {
           assets and portfolios
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Left column — About blurb */}
-          <motion.div
-            className="lg:col-span-7"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            variants={fadeUp}
+        {/* Prose section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+        >
+          <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
+            <p>
+              When capital, governance, and delivery come under pressure,
+              control breaks down. Assumptions go unchallenged. Risk is
+              fragmented across functions. Decisions become reactive.
+              Financial discipline is subordinated to project delivery.
+            </p>
+            <p>
+              Most interventions arrive too late, lack objectivity, and stop
+              at the recommendation.
+            </p>
+            <p>
+              We don&apos;t. We establish a decision-grade view of exposure,
+              test business cases against real delivery conditions, and
+              define clear capital pathways. Then we execute across
+              contracts, partners, and assets.
+            </p>
+            <p>
+              Built by operators. We have owned the decisions and outcomes
+              we now deliver.
+            </p>
+            <p>
+              Across offshore wind, onshore wind and solar, storage, and
+              power-to-X.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 mt-8 group"
           >
-            <h3 className="text-text-dark text-xl md:text-2xl font-normal mb-8">
-              We restore control
-            </h3>
-            <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
-              <p>
-                When capital, governance, and delivery come under pressure,
-                control breaks down. Assumptions go unchallenged. Risk is
-                fragmented across functions. Decisions become reactive.
-                Financial discipline is subordinated to project delivery.
-              </p>
-              <p>
-                Most interventions arrive too late, lack objectivity, and stop
-                at the recommendation.
-              </p>
-              <p>
-                We don&apos;t. We establish a decision-grade view of exposure,
-                test business cases against real delivery conditions, and
-                define clear capital pathways &mdash; then execute across
-                contracts, partners, and assets.
-              </p>
-              <p>
-                Built by operators. We have owned the decisions and outcomes
-                we now deliver.
-              </p>
-              <p>
-                Across offshore wind, onshore wind and solar, storage, and
-                power-to-X.
-              </p>
-            </div>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 mt-8 group"
-            >
-              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-accent-blue text-white transition-transform duration-200 group-hover:scale-110">
-                <svg
-                  aria-hidden="true"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </span>
-              <span className="text-accent-blue font-light text-sm tracking-wide underline underline-offset-4 decoration-accent-blue/40 group-hover:decoration-accent-blue transition-colors duration-200">
-                Contact Us
-              </span>
-            </Link>
-          </motion.div>
+            <span className="flex items-center justify-center w-10 h-10 rounded-full bg-accent-blue text-white transition-transform duration-200 group-hover:scale-110">
+              <svg
+                aria-hidden="true"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </span>
+            <span className="text-accent-blue font-light text-sm tracking-wide underline underline-offset-4 decoration-accent-blue/40 group-hover:decoration-accent-blue transition-colors duration-200">
+              Contact Us
+            </span>
+          </Link>
+        </motion.div>
 
-          {/* Right column — Statistics */}
-          <motion.div
-            className="lg:col-span-5"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            variants={fadeUp}
-          >
-            <h3 className="text-text-dark text-xl md:text-2xl font-normal mb-8">
-              Delivered at Scale, Under Pressure
-            </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-6">
-              {stats.map((stat) => (
-                <StatCounter key={stat.label} {...stat} />
-              ))}
-            </div>
-          </motion.div>
-        </div>
+        {/* Stats section */}
+        <motion.div
+          className="mt-16 md:mt-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          variants={fadeUp}
+        >
+          <h3 className="text-text-dark text-2xl md:text-[34px] font-normal mb-8 leading-snug">
+            Delivered at Scale, Under Pressure
+          </h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 lg:gap-y-10">
+            {stats.map((stat) => (
+              <StatCounter key={stat.label} {...stat} />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

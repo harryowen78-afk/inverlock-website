@@ -19,7 +19,7 @@ const cards = [
     whatWeDo:
       "Independently stress-test the investment case against real delivery conditions. Challenge assumptions that internal teams have lived with too long to question. Quantify where the case breaks and what it would take to hold.",
     outcome:
-      "Capital committed with conviction — or a clear, evidenced case for why it shouldn't be.",
+      "Capital committed with conviction, or a clear, evidenced case for why it shouldn't be.",
   },
   {
     number: "02",
@@ -172,7 +172,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[900px]"
             >
-              Momentum, targets, incentives &mdash; all push in one direction.
+              Momentum, targets and incentives all push in one direction.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
