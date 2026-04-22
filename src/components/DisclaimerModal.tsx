@@ -21,7 +21,8 @@ export default function DisclaimerModal() {
     } catch {
       // localStorage unavailable or corrupt — show modal
     }
-    setVisible(true);
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   // Focus the accept button when modal becomes visible

@@ -15,29 +15,29 @@ const cards = [
     number: "01",
     title: "Investment Assurance",
     situation:
-      "Major capital commitment approaching. The board needs independent challenge before committing.",
+      "A major capital decision is approaching. Economics are marginal, key risks are unquantified, and the assessment is too reliant on the team responsible for delivery.",
     whatWeDo:
-      "Independently test economics, risk allocation, and delivery readiness. Challenge assumptions that internal teams have lived with too long to question.",
+      "Independently stress-test the investment case against real delivery conditions. Challenge assumptions that internal teams have lived with too long to question. Quantify where the case breaks and what it would take to hold.",
     outcome:
-      "Capital committed with conviction. Decision backed by independent view.",
+      "Capital committed with conviction — or a clear, evidenced case for why it shouldn't be.",
   },
   {
     number: "02",
     title: "Growth & Capital Discipline",
     situation:
-      "Scaling into new markets, assets, or geographies. Growth ambitions need grounding against capital constraints.",
+      "Scaling into new markets, assets, or geographies. The case for growth exists — but it doesn't properly account for the costs, risks, and capital demands.",
     whatWeDo:
-      "Test growth plans against funding headroom, returns, and delivery capability. Separate viable pipeline from expensive optionality. Remove speculative options that delay proper decisions.",
+      "Test growth plans against capital constraints and delivery reality. Separate viable pipeline from expensive optionality. Force the prioritisation decisions that internal momentum tends to defer.",
     outcome:
-      "Growth scaled at a pace the economics support, not ambition alone.",
+      "Targeted growth that the economics support.",
   },
   {
     number: "03",
     title: "Performance & Strategic Review",
     situation:
-      "A business or portfolio may no longer justify the capital it absorbs. Cost base, targets, and organisation are misaligned to market reality.",
+      "Cost base is inflated, targets have slipped, and the absence of independent scrutiny is delaying action that leadership already knows is necessary.",
     whatWeDo:
-      "Whole-business review of performance, capital efficiency, and strategic options. From continued investment through restructuring to exit.",
+      "Whole-business review of performance, capital efficiency, and strategic options. We work across the full range, from restructuring the cost base and resetting targets through to exit, giving leadership the independent basis to act.",
     outcome:
       "A decision the board can stand behind, with a defined path forward.",
   },
@@ -45,9 +45,9 @@ const cards = [
     number: "04",
     title: "Exit & Recovery",
     situation:
-      "A project, portfolio, or business unit requires a controlled wind-down. Contractual exposure is high, stakeholder complexity is real.",
+      "A project, portfolio, or business unit has failed and needs to be closed. The priority is minimising cost, disruption, and liability.",
     whatWeDo:
-      "Build a decision-grade view of contractual exposure. Execute termination programmes, settle contracts, monetise or repurpose assets. We run these programmes at scale and own the outcomes.",
+      "Build a decision-grade view of contractual exposure. Execute termination programmes, settle contracts, monetise or repurpose assets. We have run these programmes at scale — 250 contracts settled, $1.5bn recovered — and we own the outcomes.",
     outcome:
       "Clean exit executed, capital released, obligations discharged.",
   },
@@ -164,7 +164,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[900px]"
             >
-              Organisations are built to build.
+              Project organisations are built to build.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -172,8 +172,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-white/85 text-2xl md:text-[34px] font-light leading-snug max-w-[900px]"
             >
-              Ambition, momentum, and institutional bias all push in one
-              direction.
+              Momentum, targets, incentives &mdash; all push in one direction.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -181,7 +180,7 @@ export default function ApproachPage() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-white text-2xl md:text-[40px] font-medium leading-snug max-w-[900px] mt-6"
             >
-              Inverlock provides independent judgement on whether that direction
+              Inverlock provides independent challenge to ensure that direction
               is right.
             </motion.p>
             <motion.p

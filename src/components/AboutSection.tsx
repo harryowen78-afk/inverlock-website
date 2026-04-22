@@ -8,8 +8,10 @@ import StatCounter from "./StatCounter";
 const stats = [
   { value: 6, prefix: "$", suffix: "bn+", label: "Assets and business units stabilised" },
   { value: 1.5, prefix: "$", suffix: "bn", label: "Recovered through project termination programmes", decimals: 1 },
-  { value: 1.4, prefix: "\u20ac", suffix: "bn", label: "Recovered through platform sales launched", decimals: 1 },
+  { value: 1.4, prefix: "€", suffix: "bn", label: "Recovered through platform sales launched", decimals: 1 },
   { value: 80, prefix: "~", suffix: "%", label: "DEVEX reduction achieved in portfolio development company" },
+  { value: 720, prefix: "$", suffix: "m", label: "EBITDA renewables & BESS portfolio re-evaluated" },
+  { value: 7, prefix: "€", suffix: "bn", label: "Investment decision reviewed" },
   { value: 15, label: "Joint Ventures built, managed and exited globally" },
   { value: 12, suffix: "+", label: "Markets" },
 ];
@@ -25,6 +27,18 @@ export default function AboutSection() {
   return (
     <section id="about" ref={ref} className="bg-light-grey py-20 md:py-28">
       <div className="mx-auto max-w-[1280px] px-6 md:px-20">
+        <motion.h2
+          className="text-text-dark text-2xl md:text-[34px] font-normal mb-12 md:mb-16 leading-snug"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+        >
+          Inverlock delivers decisive commercial intervention in complex energy
+          assets and portfolios
+        </motion.h2>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left column — About blurb */}
           <motion.div
@@ -35,38 +49,33 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             variants={fadeUp}
           >
-            <h2 className="text-text-dark text-2xl md:text-[34px] font-normal mb-4 leading-snug">
-              Inverlock delivers decisive commercial intervention in complex
-              energy assets and portfolios
-            </h2>
-            <p className="text-text-body text-lg md:text-2xl font-light leading-relaxed mb-8">
-              We restore control alongside developers and investors in
-              situations where capital, governance, and delivery are under
-              pressure.
-            </p>
+            <h3 className="text-text-dark text-xl md:text-2xl font-normal mb-8">
+              We restore control
+            </h3>
             <div className="space-y-4 text-text-body text-base font-light leading-relaxed">
               <p>
-                Control breaks down when assumptions go unchallenged, risk is
-                fragmented, decisions are reactive, and financial discipline is
-                subordinated to project delivery.
-              </p>
-              <p className="font-medium text-text-dark">
-                We intervene to restore control.
+                When capital, governance, and delivery come under pressure,
+                control breaks down. Assumptions go unchallenged. Risk is
+                fragmented across functions. Decisions become reactive.
+                Financial discipline is subordinated to project delivery.
               </p>
               <p>
-                We establish a decision-grade view of exposure, test business
-                cases against real conditions, and define clear capital
-                pathways. We then execute across contracts, partners, and
-                assets to protect value.
+                Most interventions arrive too late, lack objectivity, and stop
+                at the recommendation.
               </p>
               <p>
-                Built by operators, we have owned the outcomes we now deliver
-                by either working within teams or alongside management.
+                We don&apos;t. We establish a decision-grade view of exposure,
+                test business cases against real delivery conditions, and
+                define clear capital pathways &mdash; then execute across
+                contracts, partners, and assets.
               </p>
               <p>
-                We operate across offshore wind, onshore wind and solar,
-                storage, and power-to-X: wherever complex infrastructure
-                underperforms.
+                Built by operators. We have owned the decisions and outcomes
+                we now deliver.
+              </p>
+              <p>
+                Across offshore wind, onshore wind and solar, storage, and
+                power-to-X.
               </p>
             </div>
             <Link
