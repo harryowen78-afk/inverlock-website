@@ -156,11 +156,11 @@ White or very light grey background. Generous padding.
 
 Body copy:
 
-> For enquiries, please [email us here](mailto:jhenry@inverlockadvisory.com).
+> For enquiries, please [email us here](mailto:info@inverlockadvisory.com).
 >
-> Should you wish for more information on how Inverlock can support your assets and portfolio, please do not hesitate to [contact us here](mailto:jhenry@inverlockadvisory.com).
+> Should you wish for more information on how Inverlock can support your assets and portfolio, please do not hesitate to [contact us here](mailto:info@inverlockadvisory.com).
 
-The `email us here` and `contact us here` should be `mailto:jhenry@inverlockadvisory.com` links styled in the accent blue with underline on hover (matching Icon's link styling).
+The `email us here` and `contact us here` should be `mailto:info@inverlockadvisory.com` links styled in the accent blue with underline on hover (matching Icon's link styling).
 
 ### Footer
 

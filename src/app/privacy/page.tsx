@@ -51,10 +51,10 @@ export default function PrivacyPolicyPage() {
                 Inverlock. If you have any questions about this Privacy Policy or
                 our data practices, please contact us at{" "}
                 <a
-                  href="mailto:jhenry@inverlockadvisory.com"
+                  href="mailto:info@inverlockadvisory.com"
                   className="text-accent-blue underline underline-offset-4 decoration-accent-blue/40 hover:decoration-accent-blue transition-colors duration-200"
                 >
-                  jhenry@inverlockadvisory.com
+                  info@inverlockadvisory.com
                 </a>
                 .
               </p>
@@ -176,10 +176,10 @@ export default function PrivacyPolicyPage() {
                 right to data portability and the right to object to processing.
                 To exercise any of these rights, please contact us at{" "}
                 <a
-                  href="mailto:jhenry@inverlockadvisory.com"
+                  href="mailto:info@inverlockadvisory.com"
                   className="text-accent-blue underline underline-offset-4 decoration-accent-blue/40 hover:decoration-accent-blue transition-colors duration-200"
                 >
-                  jhenry@inverlockadvisory.com
+                  info@inverlockadvisory.com
                 </a>
                 .
               </p>

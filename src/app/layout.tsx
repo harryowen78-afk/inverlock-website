@@ -64,7 +64,7 @@ export default function RootLayout({
               url: "https://www.inverlockadvisory.com",
               description:
                 "Specialist infrastructure advisory firm delivering high-stakes commercial interventions across portfolio companies and mega projects.",
-              email: "jhenry@inverlockadvisory.com",
+              email: "info@inverlockadvisory.com",
               serviceType: "Infrastructure Advisory",
               areaServed: "Global",
               knowsAbout: [

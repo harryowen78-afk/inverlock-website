@@ -154,10 +154,10 @@ export default function CookiePolicyPage() {
                 If you have any questions about our use of cookies or local
                 storage, please contact us at{" "}
                 <a
-                  href="mailto:jhenry@inverlockadvisory.com"
+                  href="mailto:info@inverlockadvisory.com"
                   className="text-accent-blue underline underline-offset-4 decoration-accent-blue/40 hover:decoration-accent-blue transition-colors duration-200"
                 >
-                  jhenry@inverlockadvisory.com
+                  info@inverlockadvisory.com
                 </a>
                 .
               </p>
