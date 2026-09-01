@@ -77,6 +77,15 @@ export default function PrivacyPolicyPage() {
                 </li>
                 <li>
                   <strong className="font-normal text-text-dark">
+                    Publication requests:
+                  </strong>{" "}
+                  your name, email address and, optionally, your company when
+                  you download a paper from our Insights section or request the
+                  underlying dataset. These forms are processed on our behalf by
+                  Web3Forms, which delivers the submission to us by email.
+                </li>
+                <li>
+                  <strong className="font-normal text-text-dark">
                     Technical data:
                   </strong>{" "}
                   IP address, browser type and version, device information, and
@@ -99,6 +108,16 @@ export default function PrivacyPolicyPage() {
               <p>We use your personal data for the following purposes:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>To respond to your enquiries and provide our advisory services.</li>
+                <li>
+                  To send you the publication or dataset you requested, and
+                  where relevant to follow up once about it. We do not add you
+                  to a marketing list without your consent, and we do not share
+                  your details with third parties.
+                </li>
+                <li>
+                  To understand how our website is used, in aggregate and
+                  without identifying individual visitors.
+                </li>
                 <li>To operate and maintain our website.</li>
                 <li>To comply with legal and regulatory obligations.</li>
                 <li>

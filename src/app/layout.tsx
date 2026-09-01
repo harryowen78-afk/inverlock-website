@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -33,13 +34,24 @@ export const metadata: Metadata = {
     description:
       "Inverlock advises investors and developers on high-stakes commercial interventions across infrastructure assets.",
     type: "website",
+    url: "/",
+    siteName: "Inverlock Advisory",
+    locale: "en_GB",
     images: [
       {
-        url: "/android-chrome-512x512.png",
-        width: 512,
-        height: 512,
+        url: "/images/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Inverlock — Decisive Intervention in Infrastructure",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inverlock | Decisive Intervention in Infrastructure",
+    description:
+      "Inverlock advises investors and developers on high-stakes commercial interventions across infrastructure assets.",
+    images: ["/images/og-default.png"],
   },
 };
 
@@ -65,6 +77,8 @@ export default function RootLayout({
               description:
                 "Specialist infrastructure advisory firm delivering high-stakes commercial interventions across portfolio companies and mega projects.",
               email: "info@inverlockadvisory.com",
+              logo: "https://www.inverlockadvisory.com/images/inverlock-logo.svg",
+              sameAs: ["https://www.linkedin.com/company/inverlock-advisory"],
               serviceType: "Infrastructure Advisory",
               areaServed: "Global",
               knowsAbout: [
@@ -90,6 +104,9 @@ export default function RootLayout({
         <Navbar />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        {/* Cookieless, so no consent banner is required. Enable Web Analytics
+            on the Vercel project for the dashboard to receive these events. */}
+        <Analytics />
       </body>
     </html>
   );

@@ -107,14 +107,24 @@ export default function CookiePolicyPage() {
 
             <div className="space-y-4">
               <h2 className="text-text-dark text-xl font-normal">
-                4. Third-Party Cookies
+                4. Analytics and Third-Party Cookies
               </h2>
               <p>
-                We do not currently use any third-party cookies, analytics
-                services, or tracking technologies on this website. Should this
-                change in the future, we will update this policy and implement
-                appropriate consent mechanisms as required under the Privacy and
+                We use Vercel Web Analytics to understand how many people visit
+                the site and which pages they read. It is privacy-friendly by
+                design: it sets no cookies, stores no identifiers on your
+                device, and does not track you across other websites. It reports
+                only aggregate figures such as page views and referring sites,
+                and does not build a profile of individual visitors. Because no
+                cookies or similar technologies are stored on your device for
+                this purpose, no consent is required under the Privacy and
                 Electronic Communications Regulations 2003 (PECR).
+              </p>
+              <p>
+                We use no advertising cookies and no cross-site tracking
+                technologies. Should this change in the future, we will update
+                this policy and implement appropriate consent mechanisms as
+                required under PECR.
               </p>
             </div>
 
