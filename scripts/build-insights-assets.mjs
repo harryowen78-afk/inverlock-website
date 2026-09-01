@@ -395,10 +395,11 @@ async function buildTitleCard({ headline, thesis, out, outDir = outOg, bare = fa
       ${thesisLines
         .map(
           (line, i) =>
-            // accent-blue at full opacity: on this navy it lands at ~5.3:1,
-            // so it stays legible rather than becoming decorative.
-            `<text x="${X}" y="${thesisY + i * 38}" font-family="${FONT}" font-size="28"
-                   font-weight="300" fill="#4a90c4">${escapeXml(line)}</text>`
+            // accent-blue at full opacity: on this navy it lands at ~5.3:1.
+            // Set at 40px in weight 400 rather than 28px light — at the size
+            // this card is actually viewed, thin small type disappears.
+            `<text x="${X}" y="${thesisY + i * 48}" font-family="${FONT}" font-size="40"
+                   font-weight="400" fill="#4a90c4">${escapeXml(line)}</text>`
         )
         .join("")}
     </svg>`;
