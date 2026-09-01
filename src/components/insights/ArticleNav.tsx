@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 export interface Section {
@@ -47,27 +47,55 @@ function useActiveSection(sections: Section[]) {
  * navbar; purely decorative, so it is hidden from assistive tech.
  */
 export function ReadingProgress({ targetId }: { targetId: string }) {
-  const [progress, setProgress] = useState(0);
+  const barRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = document.getElementById(targetId);
-    if (!el) return;
+    const bar = barRef.current;
+    if (!el || !bar) return;
 
-    const update = () => {
-      const { top, height } = el.getBoundingClientRect();
-      const viewport = window.innerHeight;
-      // 0 when the article top reaches the viewport top, 1 at its end.
-      const scrolled = -top;
-      const total = Math.max(height - viewport, 1);
-      setProgress(Math.min(Math.max(scrolled / total, 0), 1));
+    // The article's position and height are measured once and on resize, not
+    // on every scroll event: getBoundingClientRect during a scroll forces a
+    // synchronous layout, and iOS momentum scrolling fires very frequently.
+    let articleTop = 0;
+    let articleHeight = 0;
+    let frame = 0;
+
+    const measure = () => {
+      const rect = el.getBoundingClientRect();
+      articleTop = rect.top + window.scrollY;
+      articleHeight = rect.height;
     };
 
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
+    // Writes the transform straight to the node. Routing this through state
+    // meant a React render per scroll event for a purely decorative bar.
+    const paint = () => {
+      frame = 0;
+      const total = Math.max(articleHeight - window.innerHeight, 1);
+      const progress = Math.min(
+        Math.max((window.scrollY - articleTop) / total, 0),
+        1
+      );
+      bar.style.transform = `scaleX(${progress})`;
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(paint);
+    };
+
+    const onResize = () => {
+      measure();
+      onScroll();
+    };
+
+    measure();
+    paint();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
     return () => {
-      window.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      if (frame) cancelAnimationFrame(frame);
     };
   }, [targetId]);
 
@@ -77,8 +105,9 @@ export function ReadingProgress({ targetId }: { targetId: string }) {
       className="fixed top-20 left-0 right-0 z-40 h-0.5 bg-transparent pointer-events-none"
     >
       <div
-        className="h-full bg-accent-blue origin-left"
-        style={{ transform: `scaleX(${progress})`, width: "100%" }}
+        ref={barRef}
+        className="h-full w-full bg-accent-blue origin-left"
+        style={{ transform: "scaleX(0)" }}
       />
     </div>
   );

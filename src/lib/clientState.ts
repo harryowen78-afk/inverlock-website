@@ -13,12 +13,28 @@ import { useSyncExternalStore } from "react";
  * the client snapshot as part of hydration.
  */
 
+/**
+ * Coalesces scroll and resize into at most one notification per frame. iOS
+ * momentum scrolling fires these faster than the display refreshes, and each
+ * notification makes React re-read every subscriber's snapshot — some of
+ * which measure the document and so force a layout.
+ */
 function subscribeToScroll(onChange: () => void) {
-  window.addEventListener("scroll", onChange, { passive: true });
-  window.addEventListener("resize", onChange, { passive: true });
+  let frame = 0;
+  const handler = () => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      onChange();
+    });
+  };
+
+  window.addEventListener("scroll", handler, { passive: true });
+  window.addEventListener("resize", handler, { passive: true });
   return () => {
-    window.removeEventListener("scroll", onChange);
-    window.removeEventListener("resize", onChange);
+    window.removeEventListener("scroll", handler);
+    window.removeEventListener("resize", handler);
+    if (frame) cancelAnimationFrame(frame);
   };
 }
 
