@@ -12,27 +12,38 @@ export default function Footer() {
             <Link href="/services" className="hover:text-white transition-colors duration-200">
               Services
             </Link>
+            <Link href="/insights" className="hover:text-white transition-colors duration-200">
+              Insights
+            </Link>
             <Link href="/contact" className="hover:text-white transition-colors duration-200">
               Contact
             </Link>
           </nav>
           <div className="flex gap-6 text-xs text-white/70">
-            <Link href="/privacy" className="hover:text-white transition-colors duration-200">
+            <Link
+              href="/privacy"
+              className="hover:text-white transition-colors duration-200 py-2"
+            >
               Privacy Policy
             </Link>
-            <Link href="/cookies" className="hover:text-white transition-colors duration-200">
+            <Link
+              href="/cookies"
+              className="hover:text-white transition-colors duration-200 py-2"
+            >
               Cookie Policy
             </Link>
           </div>
         </div>
         <div className="border-t border-slate-blue/30 pt-6 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+          {/* Sitewide disclaimer. Kept in step with the paper's own wording in
+              PaperDisclaimer.tsx; only the scope differs (website vs document). */}
           <p className="text-xs text-white/70 leading-relaxed max-w-3xl">
             Inverlock is a trading name. This website is for informational
             purposes only and does not constitute advice, an offer,
-            solicitation, or recommendation. No representation or warranty is
-            made as to the accuracy or completeness of the information
-            provided. Inverlock accepts no liability for any loss arising from
-            reliance on this content.
+            solicitation, or recommendation. It should not be relied upon for
+            any purpose. No representation or warranty is made as to accuracy
+            or completeness, and we disclaim all liability arising from its
+            use.
           </p>
           <a
             href="https://www.linkedin.com/company/inverlock-advisory"

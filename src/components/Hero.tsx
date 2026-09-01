@@ -5,8 +5,10 @@ import Image from "next/image";
 import ScrollChevron from "./ScrollChevron";
 
 export default function Hero() {
+  // svh, not vh: iOS Safari and the LinkedIn in-app browser report 100vh as
+  // the chrome-retracted height, which pushes the chevron below the fold.
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative min-h-[100svh] w-full overflow-hidden">
       <Image
         src="/images/lighthouse.webp"
         alt="Lighthouse overlooking the coast — representing navigational guidance in infrastructure investment"
@@ -19,7 +21,7 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-navy-dark/70 pointer-events-none" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[100svh] px-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

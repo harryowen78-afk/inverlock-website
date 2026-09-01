@@ -61,60 +61,74 @@ function OfferingCard({
   outcome,
 }: (typeof cards)[number]) {
   const [open, setOpen] = useState(false);
+  const panelId = `offering-panel-${number}`;
 
   return (
     <motion.div
-      className={`relative bg-white border rounded-sm p-10 cursor-pointer transition-colors duration-200 ${
+      className={`relative border rounded-sm transition-colors duration-200 ${
         open
           ? "border-navy-dark bg-[#f8f9fb]"
-          : "border-slate-200 hover:border-accent-blue hover:shadow-md"
+          : "border-slate-200 bg-white hover:border-accent-blue hover:shadow-md"
       }`}
-      onClick={() => setOpen(!open)}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
       variants={fadeUp}
     >
-      {/* Plus / close icon */}
-      <div
-        className={`absolute top-6 right-6 w-6 h-6 flex items-center justify-center transition-transform duration-300 ${
-          open ? "rotate-45" : ""
-        }`}
+      {/* A real button, so the panel is reachable by keyboard and announced
+          to screen readers. Previously the whole card was a clickable div. */}
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className="w-full text-left p-10 cursor-pointer"
       >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          className="text-accent-blue"
+        {/* Plus / close icon */}
+        <span
+          aria-hidden="true"
+          className={`absolute top-6 right-6 w-6 h-6 flex items-center justify-center transition-transform duration-300 ${
+            open ? "rotate-45" : ""
+          }`}
         >
-          <line x1="8" y1="2" x2="8" y2="14" />
-          <line x1="2" y1="8" x2="14" y2="8" />
-        </svg>
-      </div>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            className="text-accent-blue"
+          >
+            <line x1="8" y1="2" x2="8" y2="14" />
+            <line x1="2" y1="8" x2="14" y2="8" />
+          </svg>
+        </span>
 
-      <p className="text-accent-blue text-xs tracking-widest uppercase mb-3">
-        {number}
-      </p>
-      <h3 className="text-text-dark text-2xl font-normal mb-3">{title}</h3>
-      <p className="text-text-body text-[15px] font-light leading-relaxed">
-        {situation}
-      </p>
+        <span className="block text-accent-blue text-xs tracking-widest uppercase mb-3">
+          {number}
+        </span>
+        <span className="block text-text-dark text-2xl font-normal mb-3">
+          {title}
+        </span>
+        <span className="block text-text-body text-[15px] font-light leading-relaxed">
+          {situation}
+        </span>
+      </button>
 
       <AnimatePresence>
         {open && (
           <motion.div
+            id={panelId}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
-            className="overflow-hidden"
+            className="overflow-hidden px-10"
           >
-            <div className="border-t border-slate-200 mt-6 pt-6 space-y-5">
+            <div className="border-t border-slate-200 pt-6 pb-10 space-y-5">
               <div>
                 <p className="text-accent-blue text-xs tracking-widest uppercase mb-2">
                   What We Do
@@ -143,7 +157,7 @@ export default function ApproachPage() {
   return (
     <>
       {/* Hero — full viewport */}
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative min-h-[100svh] w-full overflow-hidden">
         <Image
           src="/images/helicopter.webp"
           alt="Helicopter over infrastructure representing operational oversight"
@@ -156,7 +170,7 @@ export default function ApproachPage() {
         />
         <div className="absolute inset-0 bg-navy-dark/70 pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col justify-end h-full pb-20 md:pb-28 px-6 md:px-20">
+        <div className="relative z-10 flex flex-col justify-end min-h-[100svh] pb-20 md:pb-28 px-6 md:px-20">
           <div className="mx-auto max-w-[1280px] w-full">
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -174,7 +188,9 @@ export default function ApproachPage() {
             >
               Momentum, targets and incentives all push in one direction.
             </motion.p>
-            <motion.p
+            {/* The page's h1 — it previously had none, and the first heading
+                in the document was an h3 inside the card grid. */}
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
@@ -182,7 +198,7 @@ export default function ApproachPage() {
             >
               Inverlock provides independent challenge to ensure that direction
               is right.
-            </motion.p>
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -224,6 +240,9 @@ export default function ApproachPage() {
       {/* Offering cards */}
       <section id="services" className="bg-light-grey py-20 md:py-28">
         <div className="mx-auto max-w-[1280px] px-6 md:px-20">
+          <h2 className="text-text-dark text-2xl md:text-[34px] font-normal mb-12 md:mb-16 leading-snug">
+            What we do
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {cards.map((card) => (
               <OfferingCard key={card.number} {...card} />

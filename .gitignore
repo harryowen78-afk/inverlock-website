@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -40,17 +41,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Project reference files
+# Project reference files (source material, not part of the site)
 /Information/
 /Images/
 /References/
+/Logos and Brand/
+/Whitepaper Copy/
 
-# Project reference files
-/Information/
-/Images/
-/References/
-
-# Project reference files
-/Information/
-/Images/
-/References/
+# Scratch space for extracting whitepaper artwork
+/.work/

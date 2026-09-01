@@ -35,3 +35,15 @@ body {
   font-family: var(--font-sans), sans-serif;
   font-weight: 300;
 }
+
+/* Keyboard focus was relying on the UA default ring, which is effectively
+   invisible on the navy bands and photographic heroes. */
+:focus-visible {
+  outline: 2px solid #4a90c4;
+  outline-offset: 2px;
+}
+
+.bg-navy-primary :focus-visible,
+.bg-navy-dark :focus-visible {
+  outline-color: #ffffff;
+}

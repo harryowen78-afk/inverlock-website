@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// Without this the 404 inherits the homepage title and its canonical URL,
+// telling search engines the error page *is* the homepage.
+export const metadata: Metadata = {
+  title: "Page Not Found | Inverlock Advisory",
+  description: "The page you are looking for could not be found.",
+  robots: { index: false, follow: true },
+  alternates: {},
+};
 
 export default function NotFound() {
   return (

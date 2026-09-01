@@ -1,27 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useScrollPredicate, useHydrated } from "@/lib/clientState";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(() => {
-    if (typeof window !== "undefined") return window.scrollY > 50;
-    return false;
-  });
-  const [mounted, setMounted] = useState(false);
+  // Read via useSyncExternalStore rather than an effect: browsers restore
+  // scroll position on reload, so the server's "not scrolled" render and the
+  // client's real position can disagree.
+  const scrolled = useScrollPredicate(() => window.scrollY > 50);
+  const mounted = useHydrated();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
-
-  useEffect(() => {
-    setScrolled(window.scrollY > 50);
-    setMounted(true);
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const showSolid = scrolled || !isHome;
 
@@ -29,8 +22,10 @@ export default function Navbar() {
     if (isHome) {
       e.preventDefault();
       document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false);
     }
+    // Close the menu either way — the Navbar lives in the root layout, so it
+    // is not remounted when navigating from another page to /#about.
+    setMenuOpen(false);
   };
 
   return (
@@ -84,6 +79,16 @@ export default function Navbar() {
             Services
           </Link>
           <Link
+            href="/insights"
+            className={`text-[15px] font-light tracking-wide transition-colors duration-200 ${
+              showSolid
+                ? "text-text-body hover:text-text-dark"
+                : "text-white/90 hover:text-white"
+            }`}
+          >
+            Insights
+          </Link>
+          <Link
             href="/contact"
             className={`text-[15px] font-light tracking-wide transition-colors duration-200 ${
               showSolid
@@ -122,26 +127,33 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t">
+        <div className="md:hidden bg-white shadow-lg border-t border-light-grey">
           <div className="flex flex-col px-6 py-4 gap-4">
             <Link
               href="/#about"
               onClick={handleAboutClick}
-              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
+              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide py-2"
             >
               About Us
             </Link>
             <Link
               href="/services"
               onClick={() => setMenuOpen(false)}
-              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
+              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide py-2"
             >
               Services
             </Link>
             <Link
+              href="/insights"
+              onClick={() => setMenuOpen(false)}
+              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide py-2"
+            >
+              Insights
+            </Link>
+            <Link
               href="/contact"
               onClick={() => setMenuOpen(false)}
-              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide"
+              className="text-text-body hover:text-text-dark text-[15px] font-light tracking-wide py-2"
             >
               Contact
             </Link>
