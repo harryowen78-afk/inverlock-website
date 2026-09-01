@@ -17,7 +17,9 @@ export const PAPER = {
   pdfPath: "/downloads/inverlock-renewables-platform-performance-25c57ee617.pdf",
   pdfDownloadName: "Inverlock-Renewables-Platform-Performance.pdf",
   pdfSizeLabel: "PDF · 9 pages · 1.6 MB",
-  ogImage: "/images/og-insights-renewables-platform-performance.png",
+  // Versioned filename: LinkedIn caches link previews by image URL, so a new
+  // card must be served from a new path to escape the old cache entry.
+  ogImage: "/images/og-renewables-platform-performance-v2.png",
 } as const;
 
 export const ARTICLE_PATH = `/insights/${PAPER.slug}`;
