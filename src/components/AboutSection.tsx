@@ -16,9 +16,14 @@ const stats = [
   { value: 12, suffix: "+", label: "Markets" },
 ];
 
+// Opacity only, no translate: iOS Safari defers IntersectionObserver
+// callbacks during momentum scrolling, so a translate reveal fires late and
+// shows content flashing 30px into place mid-scroll. A late fade is
+// imperceptible, and without a transform no compositor layer is created
+// while scrolling.
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 };
 
 export default function AboutSection() {

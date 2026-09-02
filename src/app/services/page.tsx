@@ -5,9 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ContactBar from "@/components/ContactBar";
 
+// Opacity only, no translate, for the scroll-triggered card reveals: iOS
+// Safari defers IntersectionObserver callbacks during momentum scrolling, so
+// a translate reveal fires late and flashes into place mid-scroll. The hero
+// entrance animations below keep their translate — they run on page load,
+// not on scroll.
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
 };
 
 const cards = [
