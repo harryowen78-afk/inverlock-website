@@ -190,9 +190,7 @@ export default function RenewablesPlatformPerformancePage() {
                     platforms allocate capital, structure their cost base, manage
                     development risk and operate assets. These are management
                     choices, and they help explain why outcomes diverge even under
-                    the same macro conditions. The more useful question is not how
-                    renewables have been affected by headwinds, but how well
-                    platforms have adapted to them.
+                    the same macro conditions.
                   </p>
                   <p>
                     Evidence suggests many platforms have been slow to respond.
@@ -204,13 +202,13 @@ export default function RenewablesPlatformPerformancePage() {
                   </p>
                   <p>
                     This paper tests how platforms have adapted across four areas:
-                    is development spend converted or sunk; does overhead scale
-                    with delivered capacity or with ambition; are contracts and
-                    operating assets actively managed; and does capital recycling
-                    fund the business plan. Inverlock analysed public disclosures
-                    from 27 listed developers and 35 private mid-market developers,
-                    using a purpose-built data pipeline, to compare how platforms
-                    have adapted in these areas.
+                    efficient conversion of development spend; correlation of
+                    organisational scale with delivered capacity; proactive
+                    management of contracts and operating assets; and reliance on
+                    capital recycling to fund the business plan. Inverlock analysed
+                    public disclosures from 27 listed developers and 35 private
+                    mid-market developers, using a purpose-built data pipeline, to
+                    compare how platforms have adapted in these areas.
                   </p>
                 </div>
 
@@ -225,7 +223,7 @@ export default function RenewablesPlatformPerformancePage() {
                       Disposal proceeds at pure-play large caps are down 69% on
                       average, falling from ~40% of operating cash flow to ~10%
                       since 2021&ndash;2023 peaks. Yet CAPEX was not adjusted
-                      downwards at more than 80% of the platforms whose proceeds
+                      downwards at more than 80% of the platforms where proceeds
                       collapsed.
                     </li>
                     <li className="border-l-2 border-accent-blue pl-5">
@@ -424,7 +422,7 @@ export default function RenewablesPlatformPerformancePage() {
                     day-to-day O&amp;M execution, downtime events, and enforcing
                     performance guarantees. Similar principles apply during
                     construction: scope interface management, schedule monitoring,
-                    and claims disputes.
+                    and variation orders and claims.
                   </p>
                   <p>
                     Common aggravating factors in these areas are poor contract and
@@ -546,7 +544,7 @@ export default function RenewablesPlatformPerformancePage() {
                     </li>
                   </ul>
                   <CaseStudy title="Resetting a 5GW offshore pipeline">
-                    Management defended a ~$30m annual DEVEX budget to preserve
+                    Management recommended a ~$30m annual DEVEX budget to preserve
                     optionality across permits, interconnection and site
                     exclusivity options. An independent route-to-market assessment
                     showed much of the pipeline would never meet FID economics or
@@ -731,11 +729,11 @@ export default function RenewablesPlatformPerformancePage() {
                     </li>
                   </ul>
                   <CaseStudy title="Non-contractual solutions">
-                    In a &gt;3GW US fleet, availability had fallen as low as 70% and
-                    performance guarantee LD caps were exhausted. The solution was
-                    cross-functional: a new turbine procurement award (carrying tax
-                    equity and vendor-financing economics) was made conditional on
-                    restoring the operating fleet.
+                    In a &gt;3GW operating fleet, availability had fallen as low as
+                    70% and performance guarantee LD caps were exhausted. The
+                    solution was cross-functional: a new turbine procurement award
+                    (carrying tax equity and vendor-financing economics) was made
+                    conditional on restoring fleet performance.
                   </CaseStudy>
                 </div>
 
@@ -838,7 +836,7 @@ export default function RenewablesPlatformPerformancePage() {
                         Sell the platform as a whole:
                       </strong>{" "}
                       recognise that the platform&rsquo;s scale outstrips the
-                      current fund&rsquo;s capital appetite, and package it for a
+                      current owner&rsquo;s capital appetite, and package it for a
                       strategic buyer.
                     </li>
                   </ul>
